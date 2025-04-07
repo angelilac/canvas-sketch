@@ -19,7 +19,7 @@ const settings = {
 const sketch = () => {
   return ({ context, width, height, frame }) => {
     context.fillStyle = 'white';
-    context.fillRect(0, 0, width, height);
+    context.fillRect(0, 2, width, height);
 
 // Parametri della griglia
 const cols = 10;
