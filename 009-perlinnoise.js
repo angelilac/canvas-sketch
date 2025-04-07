@@ -2,6 +2,8 @@ const canvasSketch = require('canvas-sketch');
 const { degToRad } = require('canvas-sketch-util/math');
 const random = require('canvas-sketch-util/random');
 
+import { Pane } from 'tweakpane';
+
 const settings = {
   //dimensions: [ 1024, 1024 ],
   dimensions: 'A4',
@@ -15,11 +17,11 @@ const settings = {
 
 const sketch = () => {
   return ({ context, width, height }) => {
-    context.fillStyle = 'white';
+    context.fillStyle = 'white';-ò
     context.fillRect(0, 0, width, height);
 
 // Parametri della griglia
-const cols = 10;
+const cols = PARAMS.numerocolonne; //collegato numero colonne al parametro di tweakpane
 const rows = 10;
 
 // Dimensione della griglia
@@ -67,6 +69,18 @@ const margine = (width - gridw) * 0.5;
   };
 };
 
+const PARAMS = {
+//parametri che decido di usare nello sketch
+  numerocolonne: 20,
+}
+const pane = new Pane();
+const pannello = pane.addFolder({
+  title: 'Parametri sketch',
+});
+pannello.addInput(PARAMS, 'numerocolonne'), {
+min: 10,
+max:100,
+}
 canvasSketch(sketch, settings);
 
 
