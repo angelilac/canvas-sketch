@@ -31,8 +31,8 @@ const sketch = ({ canvas, width, height }) => {
     
     // Disegna un cerchio nella posizione del mouse
     context.beginPath();
-    context.arc(mouse.x, mouse.y, 20, 0, Math.PI * 2);
-    context.fillStyle = 'blue';
+    context.arc(mouse.x, mouse.y, mouse.y/6, 0, Math.PI * 2);
+    context.fillStyle = 'rgb(' + mouse.x + ',' + mouse.y + ','+ '200)';
     context.fill();
     context.closePath();
   };
